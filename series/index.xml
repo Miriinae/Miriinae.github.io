@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Blog Name</title>
-    <link>miriinae.github.io/series/</link>
+    <link>/series/</link>
     <description>Recent content in Series on Blog Name</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright><atom:link href="miriinae.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright><atom:link href="/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Linux Tutorial</title>
-      <link>miriinae.github.io/series/arch-linux-tutorial/</link>
+      <link>/series/arch-linux-tutorial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>miriinae.github.io/series/arch-linux-tutorial/</guid>
+      <guid>/series/arch-linux-tutorial/</guid>
       <description></description>
     </item>
     

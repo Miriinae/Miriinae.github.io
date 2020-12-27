@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Arch Linux Tutorial on Blog Name</title>
-    <link>miriinae.github.io/series/arch-linux-tutorial/</link>
+    <link>/series/arch-linux-tutorial/</link>
     <description>Recent content in Arch Linux Tutorial on Blog Name</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright><atom:link href="miriinae.github.io/series/arch-linux-tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright><atom:link href="/series/arch-linux-tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Linux 설치기</title>
-      <link>miriinae.github.io/posts/archlinux.series/</link>
+      <link>/posts/archlinux.series/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>miriinae.github.io/posts/archlinux.series/</guid>
+      <guid>/posts/archlinux.series/</guid>
       <description>안녕하세요 이 시리즈에서는 저의 아치리눅스 설치기를 보여줍니다.</description>
     </item>
     
     <item>
       <title>first</title>
-      <link>miriinae.github.io/posts/archlinux.series/1/</link>
+      <link>/posts/archlinux.series/1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>miriinae.github.io/posts/archlinux.series/1/</guid>
+      <guid>/posts/archlinux.series/1/</guid>
       <description>hello 1 file</description>
     </item>
     

@@ -2,62 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog Name</title>
-    <link>miriinae.github.io/</link>
+    <link>/</link>
     <description>Recent content on Blog Name</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright><atom:link href="miriinae.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>a</title>
-      <link>miriinae.github.io/posts/a/</link>
+      <link>/posts/a/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>miriinae.github.io/posts/a/</guid>
+      <guid>/posts/a/</guid>
       <description>위원은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니한다.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>miriinae.github.io/about/</link>
+      <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>miriinae.github.io/about/</guid>
+      <guid>/about/</guid>
       <description>about me</description>
     </item>
     
     <item>
       <title>about c&#43;&#43;</title>
-      <link>miriinae.github.io/posts/c&#43;&#43;/</link>
+      <link>/posts/c&#43;&#43;/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>miriinae.github.io/posts/c&#43;&#43;/</guid>
+      <guid>/posts/c&#43;&#43;/</guid>
       <description>This is C++!</description>
     </item>
     
     <item>
       <title>first</title>
-      <link>miriinae.github.io/posts/archlinux.series/1/</link>
+      <link>/posts/archlinux.series/1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>miriinae.github.io/posts/archlinux.series/1/</guid>
+      <guid>/posts/archlinux.series/1/</guid>
       <description>hello 1 file</description>
     </item>
     
     <item>
       <title>first</title>
-      <link>miriinae.github.io/projects/hugo_theme/1/</link>
+      <link>/projects/hugo_theme/1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>miriinae.github.io/projects/hugo_theme/1/</guid>
+      <guid>/projects/hugo_theme/1/</guid>
       <description>hello</description>
     </item>
     
     <item>
       <title>Hello Second</title>
-      <link>miriinae.github.io/posts/archlinux.series/2/</link>
+      <link>/posts/archlinux.series/2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>miriinae.github.io/posts/archlinux.series/2/</guid>
+      <guid>/posts/archlinux.series/2/</guid>
       <description>두 번째 글 입니다. 이번에는 한글로 써보았습니다.</description>
     </item>
     
