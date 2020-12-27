@@ -7,23 +7,5 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>a</title>
-      <link>/posts/a/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/a/</guid>
-      <description>위원은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니한다.</description>
-    </item>
-    
-    <item>
-      <title>about c&#43;&#43;</title>
-      <link>/posts/c&#43;&#43;/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/c&#43;&#43;/</guid>
-      <description>This is C++!</description>
-    </item>
-    
   </channel>
 </rss>

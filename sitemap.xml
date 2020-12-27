@@ -3,15 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/posts/a/</loc>
-  </url>
-  
-  <url>
     <loc>/about/</loc>
-  </url>
-  
-  <url>
-    <loc>/posts/c&#43;&#43;/</loc>
   </url>
   
   <url>
@@ -27,31 +19,7 @@
   </url>
   
   <url>
-    <loc>/tags/c/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/c&#43;&#43;/</loc>
-  </url>
-  
-  <url>
     <loc>/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>/categories/etc/</loc>
-  </url>
-  
-  <url>
-    <loc>/posts/archlinux.series/1/</loc>
-  </url>
-  
-  <url>
-    <loc>/projects/hugo_theme/1/</loc>
-  </url>
-  
-  <url>
-    <loc>/posts/archlinux.series/2/</loc>
   </url>
   
   <url>
@@ -72,10 +40,6 @@
   
   <url>
     <loc>/posts/</loc>
-  </url>
-  
-  <url>
-    <loc>/categories/programming/</loc>
   </url>
   
   <url>

@@ -8,57 +8,12 @@
     <language>ko-kr</language>
     <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>a</title>
-      <link>/posts/a/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/a/</guid>
-      <description>위원은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니한다.</description>
-    </item>
-    
-    <item>
       <title>About</title>
       <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
       <description>about me</description>
-    </item>
-    
-    <item>
-      <title>about c&#43;&#43;</title>
-      <link>/posts/c&#43;&#43;/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/c&#43;&#43;/</guid>
-      <description>This is C++!</description>
-    </item>
-    
-    <item>
-      <title>first</title>
-      <link>/posts/archlinux.series/1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/archlinux.series/1/</guid>
-      <description>hello 1 file</description>
-    </item>
-    
-    <item>
-      <title>first</title>
-      <link>/projects/hugo_theme/1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/hugo_theme/1/</guid>
-      <description>hello</description>
-    </item>
-    
-    <item>
-      <title>Hello Second</title>
-      <link>/posts/archlinux.series/2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/archlinux.series/2/</guid>
-      <description>두 번째 글 입니다. 이번에는 한글로 써보았습니다.</description>
     </item>
     
   </channel>
