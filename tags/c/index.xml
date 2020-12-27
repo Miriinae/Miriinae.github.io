@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>c on Blog Name</title>
-    <link>/tags/c/</link>
-    <description>Recent content in c on Blog Name</description>
+    <title>c on Miriinae</title>
+    <link>miriinae.github.io/tags/c/</link>
+    <description>Recent content in c on Miriinae</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright><atom:link href="/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright><atom:link href="miriinae.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>about c&#43;&#43;</title>
-      <link>/posts/c&#43;&#43;/</link>
+      <link>miriinae.github.io/posts/c&#43;&#43;/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/posts/c&#43;&#43;/</guid>
+      <guid>miriinae.github.io/posts/c&#43;&#43;/</guid>
       <description>This is C++!</description>
     </item>
     
