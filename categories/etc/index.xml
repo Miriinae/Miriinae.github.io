@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Miriinae</title>
-    <link>/posts/</link>
-    <description>Recent content in Posts on Miriinae</description>
+    <title>ETC on Miriinae</title>
+    <link>/categories/etc/</link>
+    <description>Recent content in ETC on Miriinae</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 30 Dec 2020 15:36:48 +0900</lastBuildDate><atom:link href="/categories/etc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>쓸만한 링크 모음</title>
       <link>/posts/useful_links/</link>
