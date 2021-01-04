@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Arch Linux 설치기 on Miriinae</title>
+    <title>Arch Linux 설치 일지 on Miriinae</title>
     <link>/posts/archlinux.series/</link>
-    <description>Recent content in Arch Linux 설치기 on Miriinae</description>
+    <description>Recent content in Arch Linux 설치 일지 on Miriinae</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright><atom:link href="/posts/archlinux.series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>아치 리눅스를 설치했다</title>
+      <link>/posts/archlinux.series/1/</link>
+      <pubDate>Mon, 04 Jan 2021 22:53:06 +0900</pubDate>
+      
+      <guid>/posts/archlinux.series/1/</guid>
+      <description>오늘 한 것은&amp;hellip; 여러 문서들12345을 찾아보며 아치리눅스를 기초적으로 설치해 보았다.</description>
+    </item>
+    
   </channel>
 </rss>

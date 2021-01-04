@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/sass/main.css">
+    
+    
+    <title>Miriinae | 아치 리눅스를 설치했다</title>
+</head>
+<body><header id="header">
+    <div class="header__title">
+        <a href="/">
+            Miriinae
+        </a>
+    </div>
+    <input type="checkbox" id="search_btn" class="header__search_btn">
+    <label for="search_btn" class="header__search_btn__icon"></label>
+    <div id="search_area">
+    
+    <input type="search" id="search_input" name="search" placeholder="Enter to Search ...">
+</div>
+</header><main id="content">
+  <article class="section__main">
+    <section class="section__title">
+      <ol  class="nav navbar-nav">
+    
+    
+        
+    
+        
+    
+        
+    
+<li>
+    <a href="/">Miriinae</a>
+</li>
+
+    
+<li>
+    <a href="/posts/">Posts</a>
+</li>
+
+    
+<li>
+    <a href="/posts/archlinux.series/">Arch Linux 설치 일지</a>
+</li>
+
+    
+<li class="active">
+    <a href="/posts/archlinux.series/1/">아치 리눅스를 설치했다</a>
+</li>
+
+</ol>
+
+      <h1 class="section__title__cur">아치 리눅스를 설치했다</h1>
+      <section>
+        
+        
+        <h4 class="date"> writed date : 2021-01-04 </h4>
+        
+        <h4 class="last_mod"> modified date : 2020-12-27 </h4>
+        
+        <h5 class="reading_time"> 2 min </h5>
+      </section>
+      
+      <section class="categories category_list">
+        <h3>Category</h3>
+        <ul class="menu-list">
+          
+              <li><a href="/categories/linux/">Linux</a></li>
+          
+        </ul>
+      </section>
+      
+      
+      <section>
+        <h3>Tags</h3>
+        <ul class="inline-list tags">
+          
+              <li><a href="/tags/arch_linux/">arch_linux</a></li>
+          
+              <li><a href="/tags/linux/">linux</a></li>
+          
+        </ul>
+      </section>
+      
+    </section>
+    <div class="section__contents">
+      <section class="post_article">
+        <p><img src="/img/archlinux_first_install.png" alt="today&rsquo;s arch linux screenshot"></p>
+<h1 id="오늘-한-것은">오늘 한 것은&hellip;</h1>
+<p>여러 문서들<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup><sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup><sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>을 찾아보며 아치리눅스를 기초적으로 설치해 보았다.<br>
+virtual box를 이용해서 가상머신에 설치했는데, 3~4번의 시도 끝에 제대로 된 설치에 성공했다.<br>
+특히 인터넷 연결 부분이나 파티션 설정에서 어려움이 있었고, 유저와 그룹<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>의 개념이나 sudo<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>에 관해 알 수 있었다.<br>
+또 zfs<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>를 사용해 보고 싶었으나 설치 방법이 너무 복잡했다.<br>
+이런것에 초보인 나에게는 맞지 않는다고 생각이 들어서 zfs는 나중에 다시 만나기로 했다.</p>
+<p>설치 후에는 하나의 화면에서 여러 터미널을 사용할 수 있게 해주는 tmux<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>,
+cli환경에서 커서를 사용할 수 있는 GPM(General purpose mouse)<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup>,
+현재 실행중인 프로세스를 볼 수 있는 htop을 설치해 사용해 보았다.</p>
+<h1 id="오늘-알게-된-것은">오늘 알게 된 것은&hellip;</h1>
+<p>설치를 하면서 text editor 프로그램인 nano에 익숙해졌고, echo와 &gt; 를 이용해서 파일에 쓸 수 있는 방법<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup> 등을 알게 되었다.<br>
+여러 번 설치 하면서 설치 절차도 익히고 리눅스에 더 익숙해진 느낌이 들었다.</p>
+<h1 id="참고">참고</h1>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://wiki.archlinux.org/index.php/Installation_guide">https://wiki.archlinux.org/index.php/Installation_guide</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://annyeong.me/uibox/02-arch-linux-on-uibox/">https://annyeong.me/uibox/02-arch-linux-on-uibox/</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="https://www.reddit.com/r/unixporn/wiki/vm">https://www.reddit.com/r/unixporn/wiki/vm</a> <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p><a href="https://bagjunggyu.blogspot.com/2014/07/arch-linux-part-i.html">https://bagjunggyu.blogspot.com/2014/07/arch-linux-part-i.html</a> <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p><a href="https://whjeon.com/arch-install/">https://whjeon.com/arch-install/</a> <a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p><a href="https://wiki.archlinux.org/index.php/Users_and_groups">https://wiki.archlinux.org/index.php/Users_and_groups</a> <a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7" role="doc-endnote">
+<p><a href="https://wiki.archlinux.org/index.php/Sudo">https://wiki.archlinux.org/index.php/Sudo</a> <a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8" role="doc-endnote">
+<p><a href="https://wiki.archlinux.org/index.php/ZFS">https://wiki.archlinux.org/index.php/ZFS</a> <a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9" role="doc-endnote">
+<p><a href="https://dgkim5360.tistory.com/entry/the-first-steps-for-tmux-terminal-multiplexer">https://dgkim5360.tistory.com/entry/the-first-steps-for-tmux-terminal-multiplexer</a> <a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10" role="doc-endnote">
+<p><a href="https://wiki.archlinux.org/index.php/General_purpose_mouse">https://wiki.archlinux.org/index.php/General_purpose_mouse</a> <a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11" role="doc-endnote">
+<p><a href="https://twpower.github.io/114-difference-between-single-and-double-greater-than-sign">https://twpower.github.io/114-difference-between-single-and-double-greater-than-sign</a> <a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+      </section>
+      <section class="comments">
+        <h3>Comments</h3>
+        <script src="https://utteranc.es/client.js"
+          repo="Miriinae/miriinae.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </section>
+      <aside class="rel-posts">
+        <nav class="nxt-prv-post">
+          
+            <p class="prv-post no-more-post"> <i>No More Post</i> </p>
+          
+          
+            <p class="nxt-post no-more-post"> <i>No More Post</i> </p>
+          
+        </nav>
+        
+        
+      </aside>
+    </div>
+  </article>
+
+        </main><footer id="footer">
+    <p>Copyright 2020-2021 Miriinae. All rights reserved.</p>
+</footer></body>
+</html>
