@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/sass/main.css">
+    
+    
+    <title>Miriinae | 기본 설정 &amp; 필수 프로그램 설치하기</title>
+</head>
+<body><header id="header">
+    <div class="header__title">
+        <a href="/">
+            Miriinae
+        </a>
+    </div>
+    <input type="checkbox" id="search_btn" class="header__search_btn">
+    <label for="search_btn" class="header__search_btn__icon"></label>
+    <div id="search_area">
+    
+    <input type="search" id="search_input" name="search" placeholder="Enter to Search ...">
+</div>
+</header><main id="content">
+  <article class="section__main">
+    <section class="section__title">
+      <ol  class="nav navbar-nav">
+    
+    
+        
+    
+        
+    
+        
+    
+<li>
+    <a href="/">Miriinae</a>
+</li>
+
+    
+<li>
+    <a href="/posts/">Posts</a>
+</li>
+
+    
+<li>
+    <a href="/posts/archlinux.series/">Arch Linux 설치 일지</a>
+</li>
+
+    
+<li class="active">
+    <a href="/posts/archlinux.series/2/">기본 설정 &amp; 필수 프로그램 설치하기</a>
+</li>
+
+</ol>
+
+      <h1 class="section__title__cur">기본 설정 &amp; 필수 프로그램 설치하기</h1>
+      <section>
+        
+        
+        <h4 class="date"> writed date : 2021-01-11 </h4>
+        
+        <h4 class="last_mod"> modified date : 2020-12-27 </h4>
+        
+        <h5 class="reading_time"> 15 min </h5>
+      </section>
+      
+      <section class="categories category_list">
+        <h3>Category</h3>
+        <ul class="menu-list">
+          
+              <li><a href="/categories/linux/">Linux</a></li>
+          
+        </ul>
+      </section>
+      
+      
+      <section>
+        <h3>Tags</h3>
+        <ul class="inline-list tags">
+          
+              <li><a href="/tags/arch_linux/">arch_linux</a></li>
+          
+              <li><a href="/tags/linux/">linux</a></li>
+          
+        </ul>
+      </section>
+      
+    </section>
+    <div class="section__contents">
+      <section class="post_article">
+        <h2 id="wifi-설정">wifi 설정</h2>
+<p>arch linux를 처음 설치할 때 인터넷 선을 이용해 연결한 것이 아닌 wifi를 이용해야만 한다면
+arch linux에서 기본으로 제공해주는 iwctl을 사용해 wifi에 연결하여야 한다.</p>
+<h3 id="설치하기-전-iwctl로-wifi연결하기">설치하기 전 iwctl로 wifi연결하기</h3>
+<pre><code># iwctl
+[iwd]# device list
+[iwd]# station DEVICE scan
+[iwd]# station DEVICE get-networks
+[iwd]# station DEVICE connect SSID
+</code></pre><p>참고: <a href="https://www.mankier.com/1/iwctl">https://www.mankier.com/1/iwctl</a></p>
+<p>나의 경우에는 DEVICE가 wlan0이었고 SSID가 ▁▃▅▇█이었다.
+이 ssid의 이름 때문에 키보드로 바로 입력할 수가 없었는데, 다행히 tab을 누르면 자동완성으로 ssid목록이 돌아가면서 선택되어 쓸 수 있었다.
+이 기능은 ~/.inputrc에 &ldquo;TAB: menu-complete&quot;를 쓰고 logout했다가 다시 로그인 하면 적용된다.</p>
+<pre><code># echo TAB: menu-complete &gt; ~/.inputrc
+</code></pre><h3 id="설치-후-networkmanager로-wifi-연결하기">설치 후 networkmanager로 wifi 연결하기</h3>
+<p>일단 설치 과정에서 모든 설정이 끝난 후에 dhcpcd, networkmanager를 설치하고</p>
+<pre><code># systemctl enable NetworkManager.service
+# systemctl enable dhcpcd
+</code></pre><p>를 수행해야 한다.
+그리고 재부팅 후에</p>
+<pre><code>$ nmcli device wifi connect [SSID] password [PASSPHASE]
+</code></pre><p>를 수행하면 된다.
+하지만 위의 경우처럼 SSID가 키보드로 쓸 수 없는 문자로 되어있을 때는 GPM을 설치하고</p>
+<pre><code>$ sudo systemctl enable --now gpm.service
+</code></pre><p>를 통해 gpm을 활성화 하여</p>
+<pre><code>$ nmcli device wifi list
+</code></pre><p>에서 출력되는 wifi목록에서 자신이 연결할 wifi ssid를 복사해(마우스 가운데 버튼)
+위의 [SSID] 부분에 붙어넣으면(마우스 가운데 버튼) 된다.</p>
+<p>물론 더 좋은 방법이 있을 수도 있고 gui라면 그냥 복사/붙여넣기를 하면 된다.</p>
+<p>종종 인터넷이 안 될 때도 있는데, 이때 /etc/resolv.conf가 비어있다면 지우고</p>
+<pre><code>$ sudo systemctl enable --now systemd-resolved.service
+</code></pre><p>를 하면 인터넷이 다시 된다.</p>
+<ul>
+<li>추가: 그래도 인터넷이 안된다. 이럴때는 dhcpcd를 비활성화하면 된다고 한다.</li>
+</ul>
+<pre><code>$ sudo systemctl disable dhcpcd
+$ sudo systemctl stop dhcpcd
+$ reboot
+</code></pre><ul>
+<li>
+<p>추가: 근데 안되면 다시 dhcpcd를 활성화 하면 된다. 이제 되는데 언제까지 될지는 모르겠다.</p>
+</li>
+<li>
+<p>추가: linux-hardened 커널이 문제일수도 있다.</p>
+</li>
+<li>
+<p>결론: systemctl &ndash;type=service 해서 networkmanager 외의 네트워크 관리자가 있으면 다 비할성화 해야 한다.</p>
+</li>
+</ul>
+<h2 id="microcode-꼭-설치하자">microcode 꼭 설치하자.</h2>
+<p>설치 안하면 tty에서 계속 오류 log가 출력되어 사용하기가 어렵다.
+AMD cpu면 amd-ucode, Intel CPU면 intel-ucode를 설치하면 된다.</p>
+<h2 id="aur-helper-pacaur-설치하기">AUR helper pacaur 설치하기</h2>
+<p>먼저 git, expac, jq를 설치한다.
+소스파일을 받을 directory를 준비한다. 나는 ~/tmp로 했다.
+~/tmp에 들어가서</p>
+<pre><code>$ git clone  https://aur.archlinux.org/auracle-git.git
+$ cd ./auracle-git/
+$ makrpkg -si
+$ cd ..
+</code></pre><pre><code>$ git clone  https://aur.archlinux.org/pacaur.git
+$ cd pacaur/
+$ makepkg -si
+</code></pre><p>하면 pacaur이 설치된다.</p>
+<p>그리고 ~/.bashrc에서 &ldquo;export EDITOR=nano&quot;를 해줘야 한다.(nano대신 vim이나 emacs등 선호하는 editor를 넣을 수 있다.)</p>
+<p>참고: <a href="https://aur.archlinux.org/packages/pacaur/">https://aur.archlinux.org/packages/pacaur/</a></p>
+<h2 id="documents-downloads-등의-사용자-폴더-만들기">Documents, Downloads 등의 사용자 폴더 만들기</h2>
+<p>이는 XDG user directory를 이용하면 된다.
+xdg-user-dirs를 설치하고 홈 폴더에서</p>
+<pre><code>$ xdg-user-dirs-update
+</code></pre><p>하면 사용자 폴더가 만들어져 있다.
+참고: <a href="https://wiki.archlinux.org/index.php/XDG_user_directories">https://wiki.archlinux.org/index.php/XDG_user_directories</a></p>
+<h2 id="한국어-입력기-nimf-설치하기">한국어 입력기 nimf 설치하기</h2>
+<p>이 과정은 위에서 pacaur등의 aur helper를 설치해야 할 수 있다.
+aur helper를 이용해 nimf-git을 설치한다.
+설치 후에는 nimf-settings를 실행해서 사용하지 않는 입력기를 비활성화 한다.
+그리고 ~/.xinitrc에서</p>
+<pre><code>export GTK_IM_MODULE=nimf
+export QT4_IM_MODULE=&quot;nimf&quot;
+export QT_IM_MODULE=nimf
+export XMODIFIERS=&quot;@im=nimf&quot;
+nimf
+</code></pre><p>를 붙여넣는다.</p>
+<p>이후 다시 로그인하면 nimf가 실행되어 있다.
+참고: <a href="https://wiki.archlinux.org/index.php/Nimf">https://wiki.archlinux.org/index.php/Nimf</a></p>
+<h2 id="폰트-설치하기">폰트 설치하기</h2>
+<ul>
+<li>ttf-fira-code : 코딩용 폰트.</li>
+<li>ttf-roboto    : 개인적으로 선호하는 글꼴이다.</li>
+<li>noto-fonts</li>
+<li>noto-fonts-cjk: 한글 폰트가 포함되어 있다.</li>
+</ul>
+<h2 id="text-editor-설치하기">text editor 설치하기</h2>
+<p>개인적으로는 간단한 것을 좋아해서 Vim(gvim)을 사용하기로 했다.
+emacs, spacemacs는 나중에 사용해 볼 것이다.</p>
+<h2 id="terminal-설치하기">terminal 설치하기</h2>
+<p>window manager인 Awesome wm을 설치하면 xterm이 기본 terminal인데,
+alacritty라는 terminal emauator가 좋은듯 하다.</p>
+<h2 id="file-manager-tunar-설치하기">file manager Tunar 설치하기</h2>
+<ul>
+<li>thunar : file manager</li>
+<li>gvfs   : trash, device mount 관리</li>
+<li>thunar-archive-plugin : 압축/압축해제
+<ul>
+<li>xarchiver : 압축해제 프로그램
+<ul>
+<li>unrar</li>
+<li>unzip</li>
+<li>zip</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>thunar-media-tags-plugin : 사진, 영상등의 정보 표시</li>
+<li>tumbler, ffmpegthumbnailer : 썸네일</li>
+</ul>
+<h2 id="boot-message에서-irq에러-해결하기">boot message에서 irq에러 해결하기</h2>
+<p>부팅 할 때 &ldquo;No irq handeler for vector&quot;라고 메세지가 뜬다.
+이 때 나의 경우 bios를 업데이트 해서 해결했다.</p>
+<h2 id="bios-update후-linux로-부팅-못함">bios update후 linux로 부팅 못함</h2>
+<p>bios를 업데이트 하면 linux로 부팅하는 목록이 없어질 때가 있다.
+이때 arch linux의 경우 arch linux live usb로 부팅해서 해당 root, boot파티션을 mount하고
+arch-chroot로 시스템으로 들어가 gurb-install과 grub-mkconfig를 다시 수행하면 해결된다.</p>
+<h2 id="window-10-update-후-linux에서-인터넷-안됨">window 10 update 후 linux에서 인터넷 안됨</h2>
+<p>그 이유는 window에서 빠른시작 설정을 해놨기 때문이다.
+이 설정을 해제하면 다시 인터넷이 된다.</p>
+<h2 id="sound-system-구성하기">sound system 구성하기</h2>
+<p>소리를 재생하기 위해서 driver인 ALSA, 사운드 서버인 PulseAudio를 설치한다.
+alsa는 기본적으로 kernel module에 내장되어 있으므로 추가적으로 alsa-firmware를 설치한다.
+pulseaudio, pulseaudio-alsa, pamixer를 설치한다.</p>
+<pre><code>$ sudo loginctl enable-linger [USER]
+$ systemctl --user enable pulseaudio
+</code></pre><p>하고 재부팅/재로그인 하면 pulseaudio가 활성화된다.</p>
+<p>pamixer를 이용해 볼륨을 낮추거나 올릴 수 있다(기본적으로는 mute상태인듯 하다.)</p>
+<pre><code>$ pamixer -i [arg]
+</code></pre><p>참고: <a href="https://wiki.archlinux.org/index.php/PulseAudio,">https://wiki.archlinux.org/index.php/PulseAudio,</a> <a href="https://bbs.archlinux.org/viewtopic.php?id=209025">https://bbs.archlinux.org/viewtopic.php?id=209025</a></p>
+<h3 id="부팅-초기에-작은-소리가-날때">부팅 초기에 작은 소리가 날때</h3>
+<p>~/.config/pulse/default.pa에 다음의 내용을 넣고 재부팅하면 된다.</p>
+<pre><code>.include /etc/pulse/default.pa
+.nofail
+unload-module module-suspend-on-idle
+.fail
+</code></pre><p>참고: <a href="https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#Pops_when_starting_and_stopping_playback">https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#Pops_when_starting_and_stopping_playback</a></p>
+<h2 id="chrome-설치">chrome 설치</h2>
+<pre><code>$ pacaur -S google-chrome
+</code></pre><p>cli로 실행 시 google-chrome-stable</p>
+<h2 id="codec과-video-player-설치">codec과 video player 설치</h2>
+<p>vlc, gstreamer, gst-libav 설치.</p>
+<h2 id="thunar에서-외부-disk에-접근">thunar에서 외부 disk에 접근</h2>
+<ul>
+<li><a href="https://gist.github.com/grawity/3886114#file-udisks2-allow-mount-internal-js">https://gist.github.com/grawity/3886114#file-udisks2-allow-mount-internal-js</a></li>
+<li><a href="https://github.com/coldfix/udiskie/wiki/Permissions">https://github.com/coldfix/udiskie/wiki/Permissions</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Udisks#Configuration">https://wiki.archlinux.org/index.php/Udisks#Configuration</a>
+위의 두개를 하고
+ntfs 접근을 위한 ntfs-3g 설치하면 완료.</li>
+</ul>
+<h2 id="xdg-mime으로-default-프로그램-선택하기">xdg mime으로 default 프로그램 선택하기</h2>
+<pre><code>xdg-mime default gvim.desktop text/plain
+</code></pre><p>참고: <a href="https://wiki.archlinux.org/index.php/Xdg-utils#xdg-open">https://wiki.archlinux.org/index.php/Xdg-utils#xdg-open</a></p>
+<h2 id="visual-studio-code-설치">visual studio code 설치</h2>
+<p>visual-studio-code-bin 설치</p>
+<h2 id="music-player-설치">music player 설치</h2>
+<p>pragha
+아직까지 마음에 드는 player를 찾지 못했다.</p>
+<h2 id="spotify-설치">Spotify 설치</h2>
+<pre><code>curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
+</code></pre><p>를 수행 한 후 aur helper로 spotify를 설치한다.
+참고: <a href="https://aur.archlinux.org/packages/spotify/">https://aur.archlinux.org/packages/spotify/</a></p>
+<p>local file도 재생하고 싶다면</p>
+<pre><code>$ gpg --keyserver pool.sks-keyservers.net --recv-keys B4322F04D67658D8
+$ pacaur -S openjpeg
+$ pacaur -S ffmpeg-compat-57
+$ sudo pacman -S zenity
+</code></pre><p>참고: <a href="https://aur.archlinux.org/packages/ffmpeg-compat-57">https://aur.archlinux.org/packages/ffmpeg-compat-57</a></p>
+<p>이렇게 해도 local file을 열 때 crash가 난다면</p>
+<pre><code>$ pacaur -S snapd
+$ sudo systemctl enable --now snapd.socket
+$ sudo systemctl enable --now apparmor.service
+$ sudo systemctl enable --now snapd.apparmor.service
+$ sudo snap install spotify
+$ snap run spotify
+</code></pre><p>파일을 열때 글자가 깨지긴 하지만 열 수는 있다.</p>
+<h2 id="nvidia">Nvidia</h2>
+<p>nvidia driver 설치 후 kernel parameter에 nvidia-drm.modeset=1을 해서 DRM kernel mode setting을 할 수 있다.
+또한 va api와 vdpau를 위해 libva-vdpau-driver도 설치한다.
+opencl-nvidia도 설치하면 좋다.</p>
+<pre><code>/etc/default/grub 수정 후 sudo grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre><p>참고 : <a href="https://wiki.archlinux.org/index.php/Hardware_video_acceleration#Configuring_VA-API,">https://wiki.archlinux.org/index.php/Hardware_video_acceleration#Configuring_VA-API,</a>
+<a href="https://wiki.archlinux.org/index.php/VLC_media_player#Hardware_video_acceleration,">https://wiki.archlinux.org/index.php/VLC_media_player#Hardware_video_acceleration,</a>
+<a href="https://wiki.archlinux.org/index.php/NVIDIA">https://wiki.archlinux.org/index.php/NVIDIA</a>
+<a href="https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting">https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting</a></p>
+<h2 id="linux-hardend-linux-rt-설치">linux hardend, linux rt 설치</h2>
+<p>linux-hardened, nvidia-dkms, linux-rt (aur)
+기존에 설치했던 nvidia는 그대로 놔두는지는 모르겠다.
+설치 후 linux-headers, linux-hardened-headers를 설치해야 한다.
+참고: <a href="https://itsfoss.com/switch-kernels-arch-linux/">https://itsfoss.com/switch-kernels-arch-linux/</a></p>
+<h2 id="blender">blender</h2>
+<h2 id="gimp">GIMP</h2>
+<h2 id="ssd">SSD</h2>
+<p>TRIM 활성화
+TRIM으로 ssd의 속도와 성능을 향상시킬 수 있다.</p>
+<pre><code>$ lsblk --discard
+</code></pre><p>에서 DISC-GRAN과 DISC-MAX가 0이 아니라면 TRIM을 지원하는 장치이다.</p>
+<p>TRIM에는 주기적으로 실행하는 periodic TRIM과 파일이 삭제될때마다 실행되는 continuous TRIM이 있다.
+일반적으로는 periodic TRIM을 추천한다고 한다.</p>
+<p>&ldquo;util-linux&quot;에서 fstrim.service와 fstrim.timer를 제공하는데, 이를 활성화하면 된다.</p>
+<pre><code>$ sudo systemctl enable fstrim.timer
+</code></pre><h2 id="bash">bash</h2>
+<p>~/.bashrc에서 설정을 할 수 있다.
+예) shopt -s checkwinsize로 터미널 에뮬레이터 창 크기를 바꿀 때 line update를 수행한다고 한다.
+참고: <a href="https://wiki.archlinux.org/index.php/Bash#Tips_and_tricks">https://wiki.archlinux.org/index.php/Bash#Tips_and_tricks</a></p>
+<h2 id="openrgb">OpenRGB</h2>
+<pre><code>$ pacaur -S openrgb
+</code></pre><p>usb로 연결된 장치들을 root권한 없이 제어하려면
+<a href="https://gitlab.com/CalcProgrammer1/OpenRGB">https://gitlab.com/CalcProgrammer1/OpenRGB</a> 에서 60-openrgb.rules 를 /etc/udev/rules.d/ 에 복사한다.
+그리고</p>
+<pre><code>$ sudo udevadm control --reload-rules &amp;&amp; sudo udevadm trigger
+</code></pre><p>를 수행한다.</p>
+<h3 id="openrazer">OpenRazer</h3>
+<p>razer 장치의 색을 지정하려면 openrazer-meta (aur)를 설치하고</p>
+<pre><code>$ sudo gpasswd -a [USERNAME] plugdev
+</code></pre><p>를 수행하고 재부팅한다.
+참고: <a href="https://wiki.archlinux.org/index.php/Razer_peripherals">https://wiki.archlinux.org/index.php/Razer_peripherals</a></p>
+<h2 id="professional-audio">Professional Audio</h2>
+<pre><code>$ sudo pacman -S realtime-privileges
+$ sudo usermod -a -G realtime [USERNAME]
+$ sudo pacman -S jack2 qjackctl portaudio
+~
+$ sudo pacman -S alsa-utils
+$ alsactl restore 아직 안됨. 
+</code></pre><p>재부팅 후 qjackctl을 실행해서 제대로 실행되는지 확인한다.
+참고: <a href="https://wiki.archlinux.org/index.php/JACK_Audio_Connection_Kit">https://wiki.archlinux.org/index.php/JACK_Audio_Connection_Kit</a></p>
+<p>qjackctl &gt; setup &gt; verbose mode를 켜서 오류 확인
+qjackctl &gt; interface, sample rate, frames 등을 해당 프로그램의 설정과 맞춰야 한다.
+또한 Graph를 만져보는 것도 좋다.</p>
+<p>실행 후에는 기본 볼륨이 음소거 되는것 같다. pamixer -t 로 음소거를 해제하면 된다. &lt;- 아닌것 같다.</p>
+<h3 id="arodur">Arodur</h3>
+<h2 id="cups로-프린터-제어하기">CUPS로 프린터 제어하기</h2>
+<p>printer가 연결되었는지 확인하기 위해 usbutils를 설치.
+lsusb로 printer가 연결되어있는지 확인.</p>
+<p>cups, cups-pdf, cups-pk-helper 설치, cups.socket 활성화.</p>
+<p>gutenprint, foomatic-db-gutenprint-ppds 설치.</p>
+<p>system-config-printer 설치.</p>
+<h3 id="cups-설정">cups 설정</h3>
+<p>/etc/papersize 에 자신이 원하는 종이 크기 입력 (예- a4)</p>
+<p>printer 설정을 root권한 없이 하려면
+/etc/polkit-1/rules.d/49-allow-passwordless-printer-admin.rules 에</p>
+<pre><code>polkit.addRule(function(action, subject) { 
+    if (action.id == &quot;org.opensuse.cupspkhelper.mechanism.all-edit&quot; &amp;&amp; 
+        subject.isInGroup(&quot;wheel&quot;)){ 
+        return polkit.Result.YES; 
+    } 
+});
+</code></pre><p>붙여넣기.</p>
+<p>위에서 설치한 system-config-printer를 실행해서 Add 를 눌러 프린터 추가.
+프린터 설정도 하기(용지 크기, 색 등)</p>
+<p>참고: <a href="https://wiki.archlinux.org/index.php/CUPS">https://wiki.archlinux.org/index.php/CUPS</a></p>
+<h2 id="awesome-wm">Awesome wm</h2>
+<p>awesome 설치.</p>
+<pre><code>$ mkdir -p ~/.config/awesome/
+$ mkdir ~/.confg/awesome/themes/
+$ cp /etc/xdg/awesome/rc.lua ~/.config/awesome/
+</code></pre><p>picom 설치.</p>
+<pre><code>$ mkdir ~/.config/picom/
+$ cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
+</code></pre><h2 id="gnome">Gnome</h2>
+<p>그냥 gnome 깔기로 했다.</p>
+<h3 id="pop-shell">Pop Shell</h3>
+<p>pop shell도 설치하면 좋다.
+참고: <a href="https://github.com/pop-os/shell">https://github.com/pop-os/shell</a></p>
+<h3 id="paper-icons">Paper icons</h3>
+<p>paper-icon-theme-git</p>
+<h2 id="다음에-할-것">다음에 할 것</h2>
+<p>Awesome WM theme
+lockscreen
+hibernation &lt;- linux-hardened에서는 안된다고 함.
+icon
+cursur
+cleaning</p>
+<p>DAW
+Video Editor - Davinci resolce &lt;- 설치 안됨</p>
+<p>XDG ?
+xdg default software</p>
+<p>전에 썻던 data 가져오기
+backup</p>
+
+      </section>
+      <section class="comments">
+        <h3>Comments</h3>
+        <script src="https://utteranc.es/client.js"
+          repo="Miriinae/miriinae.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </section>
+      <aside class="rel-posts">
+        <nav class="nxt-prv-post">
+          
+            <p class="prv-post no-more-post"> <i>No More Post</i> </p>
+          
+          
+            <a href="/posts/archlinux.series/1/" class="nxt-post">
+              아치 리눅스를 설치했다
+              <p class="arrow-right"></p>
+            </a>
+          
+        </nav>
+        
+        
+        <nav class="rel-post">
+          <h3>See Also</h3>
+          <ul class="related-post">
+            
+            <li><a href="/posts/archlinux.series/1/">아치 리눅스를 설치했다</a></li>
+            
+          </ul>
+        </nav>
+        
+      </aside>
+    </div>
+  </article>
+
+        </main><footer id="footer">
+    <p>Copyright 2020-2021 Miriinae. All rights reserved.</p>
+</footer></body>
+</html>

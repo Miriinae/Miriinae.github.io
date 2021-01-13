@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 04 Jan 2021 22:53:06 +0900</lastBuildDate><atom:link href="/tags/arch_linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/arch_linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>기본 설정 &amp; 필수 프로그램 설치하기</title>
+      <link>/posts/archlinux.series/2/</link>
+      <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/archlinux.series/2/</guid>
+      <description>wifi 설정 arch linux를 처음 설치할 때 인터넷 선을 이용해 연결한 것이 아닌 wifi를 이용해야만 한다면 arch linux에서 기본으로 제공해주는 iwctl을 사용해 wifi에 연결하여야 한다.</description>
+    </item>
+    
     <item>
       <title>아치 리눅스를 설치했다</title>
       <link>/posts/archlinux.series/1/</link>
