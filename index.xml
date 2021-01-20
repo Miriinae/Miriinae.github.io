@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 16 Jan 2021 20:27:12 +0900</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jan 2021 14:52:23 +0900</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>시각 효과 모음</title>
+      <link>/posts/visual_effects/</link>
+      <pubDate>Sun, 17 Jan 2021 14:52:23 +0900</pubDate>
+      
+      <guid>/posts/visual_effects/</guid>
+      <description>착시, 시각 효과, 촬영 기법 등 여러가지 시각적인 효과들을 모아 보았다.</description>
+    </item>
+    
     <item>
       <title>앞으로 할 것</title>
       <link>/posts/todo/</link>

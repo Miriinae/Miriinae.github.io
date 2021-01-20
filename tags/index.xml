@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>Copyright 2020-{year} Miriinae. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 16 Jan 2021 20:27:12 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jan 2021 14:52:23 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>visual_effect</title>
+      <link>/tags/visual_effect/</link>
+      <pubDate>Sun, 17 Jan 2021 14:52:23 +0900</pubDate>
+      
+      <guid>/tags/visual_effect/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>todo</title>
       <link>/tags/todo/</link>
